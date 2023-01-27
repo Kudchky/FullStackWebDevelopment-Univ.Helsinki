@@ -7,8 +7,18 @@ import Button from "./Button.jsx";
 
 const App = () => {
   const [counter, setCounter] = useState(0);
-
+  // const [left, setLeft] = useState(0);
+  // const [right, setRight] = useState(0);
+  const [clicks, setClicks] = useState({
+    left: 0,
+    right: 0,
+  });
   /* setTimeout(() => setCounter(counter + 1), 1000); */
+  const handleLeftClick = () => setClicks({ ...clicks, left: clicks.left + 1 });
+
+  const handleRightClick = () =>
+    setClicks({ ...clicks, right: clicks.right + 1 });
+
   const increaseByOne = () => setCounter(counter + 1);
   const setToZero = () => setCounter(0);
   const decrementByOne = () => setCounter(counter - 1);
@@ -33,6 +43,12 @@ const App = () => {
 
   return (
     <div>
+      {clicks.left}
+      <button onClick={handleLeftClick}>left</button>
+      <br />
+      <br />
+      <button onClick={handleRightClick}>right</button>
+      {clicks.right}
       <Display counter={counter} />
       <Header course={course.name} />
       <Content parts={course.parts} />
