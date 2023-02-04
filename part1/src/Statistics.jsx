@@ -5,14 +5,32 @@ const Statistics = ({ good, neutral, bad }) => {
   let average = (good * 1 + neutral * 0 + bad * -1) / all;
   let positive = (good * 100) / all;
   return (
-    <div>
-      <p>good: {good}</p>
-      <p>neutral: {neutral}</p>
-      <p>bad: {bad}</p>
-      <p>all: {all}</p>
-      <p>average: {average}</p>
-      <p>positive: {positive}%</p>
-    </div>
+    <form>
+      <div>
+        <label>good: </label>
+        <label style={{ paddingLeft: "62px" }}>{good}</label>
+      </div>
+      <div>
+        <label>neutral: </label>
+        <label style={{ paddingLeft: "50px" }}>{neutral}</label>
+      </div>
+      <div>
+        <label>bad: </label>
+        <label style={{ paddingLeft: "72px" }}>{bad}</label>
+      </div>
+      <div>
+        <label>all: </label>
+        <label style={{ paddingLeft: "78px" }}>{all}</label>
+      </div>
+      <div>
+        <label>average: </label>
+        <label style={{ paddingLeft: "45px" }}>{average.toFixed(1)}</label>
+      </div>
+      <div>
+        <label>positive: </label>
+        <label style={{ paddingLeft: "43px" }}>{positive.toFixed(1)}%</label>
+      </div>
+    </form>
   );
 };
 

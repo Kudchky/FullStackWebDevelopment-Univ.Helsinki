@@ -25,7 +25,7 @@ const App = () => {
       <h1>
         <strong>statistics</strong>
       </h1>
-      {good > 0 ?? bad > 0 ?? neutral > 0 ? (
+      {good > 0 || bad > 0 || neutral > 0 ? (
         <Statistics good={good} neutral={neutral} bad={bad} />
       ) : (
         <p>No feedback given</p>
