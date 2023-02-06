@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import Button from "./Button.jsx";
-import Statistics from "./Statistics.jsx";
+import Button from "./Button";
+import Statistics from "./Statistics";
+import Anecdotes from "./Anecdotes";
 
 const App = () => {
   // convertirlo a un estado de objetos
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [selected, setSelected] = useState(0);
 
   const calificar = (calificacion, setCalificaion) => {
     return () => {
@@ -30,6 +32,7 @@ const App = () => {
       ) : (
         <p>No feedback given</p>
       )}
+      <Anecdotes selected={selected} setSelected={setSelected} />
     </div>
   );
 };

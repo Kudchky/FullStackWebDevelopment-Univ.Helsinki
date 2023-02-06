@@ -6,6 +6,7 @@ const Button = ({ handleClick, text }) => {
       <button
         onClick={handleClick}
         style={{
+          fontSize: "17px",
           width: "80px",
           height: "30px",
           backgroundColor: "orange",
