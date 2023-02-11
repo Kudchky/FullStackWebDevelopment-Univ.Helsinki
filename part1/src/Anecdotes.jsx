@@ -1,6 +1,6 @@
 import React from "react";
 
-const Anecdotes = ({ selected, setSelected }) => {
+const Anecdotes = ({ selected, setSelected, vote, setVote }) => {
   const anecdotes = [
     "If it hurts, do it more often",
     "Adding manpower to a late software project makes it later!",
@@ -13,8 +13,38 @@ const Anecdotes = ({ selected, setSelected }) => {
   const clickAnecdotesRandom = () => {
     setSelected(Math.floor(Math.random() * (anecdotes.length - 0)) + 0);
   };
+
+  const clickVote = () => {
+    setVote((prev) => {
+      const newVote = [...prev];
+      newVote[selected] += 1;
+      return newVote;
+    });
+  };
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
+      <p style={{ fontWeight: "bold", fontSize: "20px" }}>
+        {anecdotes[selected]}
+      </p>
+      <p style={{ fontSize: "20px" }}>has {vote[selected]} votes</p>
+
+      <button
+        onClick={clickVote}
+        style={{
+          fontSize: "17px",
+          width: "150px",
+          height: "30px",
+          backgroundColor: "orange",
+          borderRadius: "5px",
+          border: "2px solid blue",
+          cursor: "pointer",
+          margin: "20px 20px 0 0",
+        }}
+      >
+        vote
+      </button>
       <button
         onClick={clickAnecdotesRandom}
         style={{
@@ -29,9 +59,8 @@ const Anecdotes = ({ selected, setSelected }) => {
       >
         next anecdote
       </button>
-      <p style={{ fontWeight: "bold", fontSize: "20px" }}>
-        {anecdotes[selected]}
-      </p>
+      <h1>Anecdote with most votes</h1>
+      <span>{anecdotes[vote.indexOf(Math.max(...vote))]}</span>
     </div>
   );
 };

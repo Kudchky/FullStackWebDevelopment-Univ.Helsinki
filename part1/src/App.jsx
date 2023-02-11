@@ -9,6 +9,7 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   const [selected, setSelected] = useState(0);
+  const [vote, setVote] = useState(Array(6).fill(0));
 
   const calificar = (calificacion, setCalificaion) => {
     return () => {
@@ -32,7 +33,12 @@ const App = () => {
       ) : (
         <p>No feedback given</p>
       )}
-      <Anecdotes selected={selected} setSelected={setSelected} />
+      <Anecdotes
+        selected={selected}
+        setSelected={setSelected}
+        vote={vote}
+        setVote={setVote}
+      />
     </div>
   );
 };
